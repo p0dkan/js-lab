@@ -89,19 +89,6 @@
         }
     }
 
-    // Przykładowe użycie timeout i interval
-    const timeoutId = setTimeout(() => console.log('Zaraz'), 1500);
-    clearTimeout(timeoutId); // nie wykona się
-
-    const intervalId = setInterval(() => console.log('Znowu'), 3000);
-    setTimeout(() => clearInterval(intervalId), 10000); // zatrzyma po 10s
-
-    // Pseudolosowa liczba
-    console.log("Random:", Math.random());
-
-    // Bieżąca data
-    const now = new Date();
-    console.log("Teraz:", now.toString());
 </script>
 </body>
 </html>
