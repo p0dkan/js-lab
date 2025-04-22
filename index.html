@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +13,18 @@
         h1 {
             color: #0B3954;
         }
+
+        .green {
+            color: green;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -24,9 +37,71 @@
         <li>Nauczyć się JS</li>
         <li id="super-important">Zaimplementować</li>
     </ol>
+
+    <button type="button" onclick="removeBoringStuff()" onmouseover="console.log('Najechano!')">Usuń nudne rzeczy</button>
+
+
+        <input type="text" id="myTextField" placeholder="Wpisz coś">
+        <input type="checkbox" id="myCheckbox">
+        <label for="myCheckbox">Pokaż alert</label>
+        <button type="button" onclick="readValues()">Odczytaj wartości</button>
+
 </div>
+
 <script>
     alert('Witamy witamy');
+
+    // DOM: pobranie nagłówka
+    const header = document.getElementById('main-header');
+    console.log(header.innerText);
+
+    // Usuwanie klasy boring
+    const nudy = document.querySelectorAll("#app .boring");
+    nudy.forEach(element => {
+        alert(`Nuda: ${element.innerText}`);
+        element.classList.remove('boring');
+    });
+
+    // Dodanie nowego elementu
+    let div = document.createElement('div');
+    div.classList.add('green');
+    div.innerText = 'Zielony tekst (jeśli dodasz CSS)';
+    document.getElementById('app').append(div);
+
+    let listItem = document.createElement('li');
+    listItem.innerText = 'Zagrać';
+    document.querySelector("#app ol li:last-child").after(listItem);
+
+    // Funkcja do usuwania nudnych elementów
+    function removeBoringStuff() {
+        document.querySelectorAll("#app .boring").forEach((e) => e.remove());
+    }
+
+    // Funkcja odczytująca dane z formularza
+    function readValues() {
+        const text = document.getElementById("myTextField").value;
+        const checkbox = document.getElementById("myCheckbox").checked;
+
+        if (checkbox) {
+            alert("Wartość pola tekstowego: " + text);
+        } else {
+            alert("Checkbox nie jest zaznaczony!");
+        }
+    }
+
+    // Przykładowe użycie timeout i interval
+    const timeoutId = setTimeout(() => console.log('Zaraz'), 1500);
+    clearTimeout(timeoutId); // nie wykona się
+
+    const intervalId = setInterval(() => console.log('Znowu'), 3000);
+    setTimeout(() => clearInterval(intervalId), 10000); // zatrzyma po 10s
+
+    // Pseudolosowa liczba
+    console.log("Random:", Math.random());
+
+    // Bieżąca data
+    const now = new Date();
+    console.log("Teraz:", now.toString());
 </script>
 </body>
 </html>
