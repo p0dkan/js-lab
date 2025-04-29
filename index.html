@@ -52,17 +52,17 @@
     alert('Witamy witamy');
 
     // DOM: pobranie nagłówka
-    const header = document.getElementById('main-header');
-    console.log(header.innerText);
+    // const header = document.getElementById('main-header');
+    // console.log(header.innerText);
 
     // Usuwanie klasy boring
-    const nudy = document.querySelectorAll("#app .boring");
-    nudy.forEach(element => {
-        alert(`Nuda: ${element.innerText}`);
-        element.classList.remove('boring');
-    });
+    // const nudy = document.querySelectorAll("#app .boring");
+    // nudy.forEach(element => {
+    //     alert(`Nuda: ${element.innerText}`);
+    //     element.classList.remove('boring');
+    // });
 
-    // Dodanie nowego elementu
+
     let div = document.createElement('div');
     div.classList.add('green');
     div.innerText = 'Zielony tekst (jeśli dodasz CSS)';
@@ -72,12 +72,10 @@
     listItem.innerText = 'Zagrać';
     document.querySelector("#app ol li:last-child").after(listItem);
 
-    // Funkcja do usuwania nudnych elementów
     function removeBoringStuff() {
         document.querySelectorAll("#app .boring").forEach((e) => e.remove());
     }
 
-    // Funkcja odczytująca dane z formularza
     function readValues() {
         const text = document.getElementById("myTextField").value;
         const checkbox = document.getElementById("myCheckbox").checked;
